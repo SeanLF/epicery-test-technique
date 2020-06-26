@@ -6,6 +6,10 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.includes(:product_taxons).find_by(slug: params[:slug])
+    if (@shop = Shop.includes(:product_taxons).find_by(slug: params[:slug]))
+      @shop
+    else
+      head 404
+    end
   end
 end

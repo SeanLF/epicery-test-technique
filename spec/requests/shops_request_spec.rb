@@ -17,5 +17,10 @@ RSpec.describe 'Shops', type: :request do
       get "/shops/#{shop.slug}"
       expect(response).to have_http_status(:success)
     end
+
+    it 'fails http success' do
+      get '/shops/missing-slug'
+      expect(response).to have_http_status(:missing)
+    end
   end
 end
