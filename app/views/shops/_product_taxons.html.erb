@@ -1,0 +1,17 @@
+<% if @product_taxons.nil? || @product_taxons.empty? %>
+    <span>Nous n'avons pas encore de produits à vous offrir, revenez nous voir plus tard.</span>
+  <% else %>
+    <div id="shop-products">
+      <nav class="product-taxons-nav">
+        <a href="#product-taxons" class="nav-item">Tous les rayons</a>
+        <% @product_taxons.each do |product_taxon| %>
+          <a href="#<%= product_taxon_id product_taxon.id %>" class="nav-item">
+            <%= product_taxon.name %>
+          </a>
+        <% end %>
+      </nav>
+      <div class="product-taxons">
+        <%= render partial: "product_taxon", collection: @product_taxons %>
+      </div>
+    </div>
+  <% end %>

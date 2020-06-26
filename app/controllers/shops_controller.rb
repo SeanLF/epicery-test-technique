@@ -7,7 +7,7 @@ class ShopsController < ApplicationController
 
   def show
     if (@shop = Shop.includes(:product_taxons).find_by(slug: params[:slug]))
-      @shop
+      @product_taxons = @shop.product_taxons.order(:name).uniq
     else
       head 404
     end
