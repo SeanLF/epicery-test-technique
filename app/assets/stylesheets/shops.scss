@@ -1,3 +1,83 @@
 // Place all the styles related to the shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.index,
+.show {
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto 2rem;
+  align-items: center;
+}
+
+.index .shops {
+  display: flex;
+  flex-flow: row wrap;
+
+  .shop {
+    margin: 1rem;
+    width: 20rem;
+  }
+}
+
+.show {
+  margin: 1rem 2rem;
+
+  .shop {
+    width: 75vw;
+    .delivery-info {
+      justify-content: initial;
+      > *:not(:last-child) {
+        padding-right: 1rem;
+      }
+    }
+  }
+}
+
+.shop {
+  .shop-title {
+    color: var(--text-color-light);
+    text-decoration: none;
+  }
+
+  .star-rating {
+    padding: 0.1rem 0 0.5rem;
+  }
+
+  .address,
+  .taxons,
+  .description,
+  .delivery-info {
+    color: var(--text-color-grey);
+  }
+
+  .taxon {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    overflow-x: hidden;
+
+    &:not(:last-child)::after {
+      padding-left: 0.3rem;
+      content: "•";
+    }
+  }
+
+  hr {
+    border: 1px solid var(--border-color);
+  }
+
+  .delivery-info {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    font-weight: lighter;
+
+    > * {
+      display: flex;
+    }
+
+    i.icon::after {
+      content: " ";
+    }
+  }
+}

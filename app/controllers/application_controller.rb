@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def shop_taxons
-    @taxons_with_at_least_one_available_shop = Taxon.with_at_least_one_shop.pluck(:name)
+    @taxons_with_at_least_one_available_shop = Taxon.with_at_least_one_shop
+                                                    .select(:name).distinct.order(:name).pluck(:name)
   end
 end

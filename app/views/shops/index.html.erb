@@ -1,2 +1,11 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
+<div class="index">
+  <h1>Vos courses livrées à domicile</h1>
+
+  <div class="shops">
+    <% if @shops.nil? || @shops.empty? %>
+      <span>Aucune épicerie n'est disponible en ce moment. Veuillez revenir plus tard.</span>
+    <% else %>
+      <%= render @shops %>
+    <% end %>
+  </div>
+</div>

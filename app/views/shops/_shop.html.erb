@@ -1,0 +1,24 @@
+<div class="shop card">
+  <div class="card-header"><%= link_to shop.name, shop, class: 'shop-title' %></div>
+  <div class="card-content">
+    <div class="address"><span><%= shop.address %></span></div>
+    <div class="star-rating"><%= star_rating(shop.star_rating) %></div>
+    <div class="taxons">
+      <% first_n_product_taxons(shop).each do |taxon| %>
+        <div class="taxon"><span><%= taxon.name %></span></div>
+      <% end %>
+    </div>
+    <div class="description">
+      <span><%= shop.description %></span>
+    </div>
+    <hr>
+    <div class="delivery-info">
+      <div class="delivery-start-time">
+        <span><i class="icon">🕒</i>dès <%= shop.delivery_start_time %></span>
+      </div>
+      <div class="delivery-cost">
+        <span><i class="icon">🚲</i><%= format_price shop.delivery_price %> €</span>
+      </div>
+    </div>
+  </div>
+</div>
