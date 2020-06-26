@@ -1,0 +1,38 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="logo-container"><a href="/" id="logo">epicery</a></div>
+    <div class="delivery-details-container">
+      <div class="delivery-location-container">
+        <input
+          type="search"
+          name="delivery-location"
+          id="delivery-location"
+          placeholder="On vous livre où ? (n°, rue, ville)"
+        />
+      </div>
+      <div class="delivery-date-container">
+        <input
+          type="search"
+          name="delivery-date"
+          id="delivery-date"
+          placeholder="Quand vous livre-t-on ?"
+        />
+      </div>
+    </div>
+    <div class="help-container"><a href="#">aide</a></div>
+    <div class="authentication-container"><a href="#">se connecter</a></div>
+    <div class="cart-container"><a href="#">panier</a></div>
+  </nav>
+  <nav class="search-nav">
+    <div class="search-bar-container">
+      <input type="search" class="search-bar" placeholder="Rechercher un produit, commerçant">
+    </div>
+    <div class="categories">
+      <% @taxons_with_at_least_one_available_shop.each do |taxon| %>
+        <div class="category">
+          <span class="category-span"><%= link_to taxon, '#' %></span>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+</header>

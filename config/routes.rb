@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :admin do
@@ -7,4 +9,7 @@ Rails.application.routes.draw do
 
     root to: redirect('/admin/shops')
   end
+
+  root to: 'shops#index'
+  resources :shops, param: :slug, only: %i[index show]
 end

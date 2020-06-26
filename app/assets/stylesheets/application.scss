@@ -1,0 +1,157 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html {
+  --primary: hsl(148, 99%, 33%);
+  --primary-light: hsl(148, 96%, 39%);
+  --background: hsl(0, 0%, 97%);
+  --border-color: hsl(0, 0%, 93%);
+  --background-card: hsl(0, 0%, 100%);
+  --text-color-dark: hsl(0, 0%, 21%);
+  --text-color-grey: hsl(0, 0%, 61%);
+  --text-color-light: hsl(0, 0%, 96%);
+  --box-shadow-a: rgba(0, 0, 0, 0.19);
+  --box-shadow-b: rgba(0, 0, 0, 0.23);
+  --secondary: hsl(48, 100%, 67%);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --background-card: #1d1d1d;
+    --background: #121212;
+    --border-color: var(--background);
+    --text-color-dark: hsl(0, 0%, 89%);
+    --text-color-light: hsl(0, 0%, 21%);
+  }
+}
+
+i.icon {
+  font-style: normal;
+  font-size: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--text-color-dark);
+  background-color: var(--background);
+}
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: large;
+
+  a {
+    text-decoration: none;
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  input {
+    outline: none;
+    -webkit-appearance: none;
+    color: inherit;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: inherit;
+  }
+
+  .navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--primary);
+
+    a {
+      color: var(--text-color-light) !important;
+    }
+
+    > * {
+      padding: 0.5rem 1rem;
+    }
+
+    #logo {
+      font-size: xx-large;
+      font-family: sans-serif;
+    }
+
+    .delivery-details-container {
+      display: inline-flex;
+      flex-grow: 1;
+      justify-content: space-evenly;
+
+      input {
+        min-width: auto;
+        width: 25vw;
+        padding: 0.5rem 0;
+      }
+    }
+
+    .help-container,
+    .authentication-container,
+    .cart-container {
+      text-transform: capitalize;
+    }
+  }
+
+  .search-nav {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: var(--background-card);
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+
+    > * {
+      padding: 0.5rem;
+    }
+
+    .search-bar-container {
+      border-right: 1px solid var(--border-color);
+    }
+
+    input.search-bar {
+      width: 25vw;
+      min-width: auto;
+    }
+
+    .categories {
+      display: flex;
+      flex-flow: row nowrap;
+      overflow-x: scroll;
+
+      .category {
+        margin: 0.1rem 0.5rem;
+      }
+    }
+  }
+}
+
+.card {
+  background-color: var(--background-card);
+  border: 1px solid var(--border-color);
+
+  .card-header {
+    padding: 1rem;
+    font-size: large;
+    background-color: var(--primary);
+    color: var(--text-color-light);
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+}
