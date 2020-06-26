@@ -1,0 +1,26 @@
+<div class="product-taxon" id="<%= product_taxon_id product_taxon.id %>">
+  <div class="card">
+    <div class="card-header"><%= product_taxon.name %></div>
+    <div class="card-content">
+      <% products = @shop.products
+                         .joins(:taxons)
+                         .where(taxons: {id: product_taxon.id})
+      %>
+      <% products_shown, remainder = products.partition.with_index { |_, index| index <= 3 } %>
+      <div class="products">
+        <%= render partial: "product",
+                  collection: products_shown %>
+        <% if remainder.count.positive? %>
+          <div class="remaining">
+            <a href="#">
+              <div class="remaining-image"></div>
+              <div class="remaining-text">
+                Voir tout (<%= remainder.count %>) ➡️
+              </div>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

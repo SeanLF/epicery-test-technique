@@ -12,4 +12,8 @@ module ShopsHelper
   def format_price(price)
     format('%<price>.2f', price: price)
   end
+
+  def product_taxon_id(id)
+    "product-taxon-#{id}"
+  end
 end

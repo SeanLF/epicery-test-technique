@@ -5,5 +5,7 @@ class ShopsController < ApplicationController
     @shops = Shop.available
   end
 
-  def show; end
+  def show
+    @shop = Shop.includes(:product_taxons).find_by(slug: params[:slug])
+  end
 end

@@ -1,5 +1,5 @@
 <div class="shop card">
-  <div class="card-header"><%= link_to shop.name, shop, class: 'shop-title' %></div>
+  <div class="card-header"><%= link_to shop.name, shop_path(shop.slug), class: 'shop-title' %></div>
   <div class="card-content">
     <div class="address"><span><%= shop.address %></span></div>
     <div class="star-rating"><%= star_rating(shop.star_rating) %></div>
