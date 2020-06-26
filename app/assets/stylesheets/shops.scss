@@ -6,17 +6,22 @@
 .show {
   display: flex;
   flex-flow: column wrap;
-  margin: auto 2rem;
   align-items: center;
 }
 
 .index .shops {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 
   .shop {
     margin: 1rem;
     width: 20rem;
+
+    .description {
+      display: none;
+      visibility: hidden;
+    }
   }
 }
 
@@ -48,7 +53,6 @@
 
   .shop-title {
     color: var(--text-color-light);
-    text-decoration: none;
   }
 
   .star-rating {
@@ -146,7 +150,6 @@
       overflow-x: hidden;
 
       a {
-        text-decoration: none;
         text-transform: uppercase;
       }
 

@@ -43,6 +43,14 @@ i.icon {
   font-size: inherit;
 }
 
+a {
+  color: var(--text-color-dark);
+  text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
+}
+
 body {
   font-family: sans-serif;
   color: var(--text-color-dark);
@@ -52,13 +60,6 @@ body {
   display: flex;
   flex-flow: column nowrap;
   font-size: large;
-
-  a {
-    text-decoration: none;
-    &:visited {
-      color: inherit;
-    }
-  }
 
   input {
     outline: none;
@@ -71,7 +72,7 @@ body {
 
   .navbar {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
     background-color: var(--primary);
